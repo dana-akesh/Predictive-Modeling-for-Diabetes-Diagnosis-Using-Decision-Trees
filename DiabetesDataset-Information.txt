@@ -1,0 +1,12 @@
+Owners: National Institute of Diabetes and Digestive and Kidney Diseases
+
+Attributes (all numeric-valued):
+NPG: Number of times pregnant
+PGL: Plasma glucose concentration a 2 hours in an oral glucose tolerance test
+DIA: Diastolic blood pressure (mm Hg)
+TSF: Triceps skin fold thickness (mm)
+INS: 2-Hour serum insulin (mu U/ml)
+BMI: Body mass index
+DPF: Diabetes pedigree function
+AGE: Age (years)
+Diabetic: Class variable (0: negative for diabetes or 1: positive for diabetes)
