@@ -49,3 +49,25 @@ statistics_table <- data.frame(
 
 #print(statistics_table)
 View(statistics_table)
+
+# ----
+diabetic = 1 == dataset$Diabetic
+no_of_diabetic = length(which(diabetic)) #number of diabetic
+no_of_nondiabetic = length(which(!diabetic)) #number of nondiabetic
+
+percentage_of_diabetic = (no_of_diabetic / nrow(dataset)) * 100
+percentage_of_nondiabetic = (no_of_nondiabetic / nrow(dataset)) * 100
+
+# Create the four variables
+var1 <- no_of_diabetic
+var2 <- no_of_nondiabetic
+var3 <- percentage_of_diabetic
+var4 <- percentage_of_nondiabetic
+
+# Create a matrix with two columns and two rows
+ordered_matrix <- matrix(c(var1, var2, var3, var4), nrow = 2, ncol = 2,
+                        dimnames = list(c("diabetic", "nondiabetic"), c("number", "percentage")))
+
+
+# Print the ordered matrix
+print(ordered_matrix)
