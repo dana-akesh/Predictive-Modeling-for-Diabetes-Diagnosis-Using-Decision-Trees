@@ -1,22 +1,29 @@
 library(C50)
-library(datasets)
+
+# reading the file and putting the data in a dataset
 dataset <- read.csv("DiabetesData.csv", TRUE, ",")
-View(dataset)
-str(dataset)
 
+# making the 0 & 1 values into
 dataset$Diabetic<-as.factor(dataset$Diabetic)
-str(dataset$Diabetic)
 
-shuffle = dataset[order(runif(nrow(dataset))) , ]
-View(shuffle)
+set.seed(777)
 
-training = shuffle[1:floor(nrow(shuffle)*0.7),]
-View(training)
-
-testing = shuffle[floor(nrow(shuffle)*0.7)+1 : nrow(shuffle),]
-View(testing)
-
-model = C5.0.default(training[ , -9], training[ , 9])
-plot(model, type="simple", main="Decision Tree")
-
+# ----
+# splitting the data and then train it
+# use 70% of dataset as training set and 30% as test set
+ctrl = C5.0Control(sample = 0.7)
+model = C5.0.default(dataset[ , -9], dataset[ , 9], control = ctrl)
 summary(model)
+
+
+# ----
+# plotting
+TrainingDataSet = ShuffledDataSet[1:floor(nrow(ShuffledDataSet)*0.7), ]
+ShuffledDataSet = dataset[order(runif(nrow(dataset))), ]
+M1_training_model <- C5.0.default(TrainingDataSet[, -9], TrainingDataSet[, 9])
+plot(M1_training_model, type="s", main=" M1 Decision Tree")
+
+# ----
+
+
+
