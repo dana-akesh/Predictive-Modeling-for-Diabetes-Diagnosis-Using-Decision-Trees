@@ -19,6 +19,7 @@ summary(model)
 # ----
 # plotting
 TrainingDataSet = ShuffledDataSet[1:floor(nrow(ShuffledDataSet)*0.7), ]
+TestingDataSet = ShuffledDataSet[(floor(nrow(ShuffledDataSet)*0.7)+1):nrow(ShuffledDataSet), ]
 ShuffledDataSet = M1_dataset[order(runif(nrow(M1_dataset))), ]
 M1_training_model <- C5.0.default(TrainingDataSet[, -9], TrainingDataSet[, 9])
 plot(M1_training_model, type="s", main=" M1 Decision Tree")

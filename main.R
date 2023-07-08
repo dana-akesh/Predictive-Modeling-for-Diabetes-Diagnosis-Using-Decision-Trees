@@ -51,9 +51,10 @@ statistics_table <- data.frame(
 View(statistics_table)
 
 # ----
+# distribution of the target class
 diabetic = 1 == dataset$Diabetic
-no_of_diabetic = length(which(diabetic)) #number of diabetic
-no_of_nondiabetic = length(which(!diabetic)) #number of nondiabetic
+no_of_diabetic = length(which(diabetic)) # number of diabetic
+no_of_nondiabetic = length(which(!diabetic)) # number of nondiabetic
 
 percentage_of_diabetic = (no_of_diabetic / nrow(dataset)) * 100
 percentage_of_nondiabetic = (no_of_nondiabetic / nrow(dataset)) * 100
